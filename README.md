@@ -11,7 +11,7 @@ This repository contains the XR prototype developed for visionOS using SwiftUI a
 Isle was created as a Major Project for the MA User Experience Design course at the University for the Creative Arts.
 
 
-####How to Run the XR Prototype####
+###How to Run the XR Prototype###
 
 A Mac with Xcode and the visionOS Simulator installed is required.
 
