@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Xcode user-specific
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# Build output
+DerivedData/
+build/
+.build/
+
+# SwiftPM local state
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# Xcode generated
+*.moved-aside
