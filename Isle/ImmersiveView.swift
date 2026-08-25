@@ -1461,7 +1461,7 @@ struct ImmersiveView: View {
 
     private let tutorialAttachmentID = "tutorial"
     private let entranceTitleAttachmentID = "entrance-title"
-    private let settingAttachmentID = "setting"
+    private let settingsAttachmentID = "settingss"
     private let exitAttachmentID = "exit"
     private let surpriseAttachmentID = "surprise"
     private let boracayAttachmentID = "memory-boracay"
@@ -1529,7 +1529,7 @@ struct ImmersiveView: View {
 
     // MARK: - Real 3D button depth bodies
 
-    private let settingDepthEntityName = "control-depth-setting"
+    private let settingsDepthEntityName = "control-depth-settings"
     private let exitDepthEntityName = "control-depth-exit"
     private let surpriseDepthEntityName = "control-depth-surprise"
     private let backDepthEntityName = "control-depth-back"
@@ -1537,7 +1537,7 @@ struct ImmersiveView: View {
     private let mainControlDepth: Float = 0.0062
     private let mainControlCornerRadius: Float = 0.026
 
-    private let settingDepthSize =
+    private let settingsDepthSize =
         SIMD3<Float>(0.150, 0.064, 0.0062)
 
     private let exitDepthSize =
@@ -1578,7 +1578,7 @@ struct ImmersiveView: View {
     private let tutorialPosition = SIMD3<Float>(0, 0.02, -1.10)
     private let entranceTitlePosition = SIMD3<Float>(0.00, 0.00, -0.91)
 
-    private let settingPosition = SIMD3<Float>(-0.803, 0.420, -0.92)
+    private let settingsPosition = SIMD3<Float>(-0.803, 0.420, -0.92)
     private let exitPosition = SIMD3<Float>(0.785, 0.420, -0.92)
     private let surprisePosition = SIMD3<Float>(-0.780, -0.420, -0.92)
     private let backPosition = SIMD3<Float>(0.785, 0.420, -0.92)
@@ -1652,7 +1652,7 @@ struct ImmersiveView: View {
     ]
 
     // 790:18683 positions mapped from the 1920 × 1080 frame into
-    // the same head-relative space already used by Setting / Exit / Surprise.
+    // the same head-relative space already used by settings / Exit / Surprise.
     private let paperPositions: [SIMD3<Float>] = [
         SIMD3<Float>(-0.234, -0.080, -0.97), // paper 1 — slightly higher
         SIMD3<Float>(-0.377,  0.315, -1.00), // paper 2
@@ -1872,9 +1872,9 @@ struct ImmersiveView: View {
         to parent: Entity
     ) {
         addFixedControlDepthBody(
-            name: settingDepthEntityName,
-            frontPosition: settingPosition,
-            size: settingDepthSize,
+            name: settingsDepthEntityName,
+            frontPosition: settingsPosition,
+            size: settingsDepthSize,
             cornerRadius: mainControlCornerRadius,
             isMainControl: true,
             to: parent
@@ -2396,12 +2396,12 @@ struct ImmersiveView: View {
 
     @AttachmentContentBuilder
     private var fixedControlAttachments: some AttachmentContent {
-        Attachment(id: settingAttachmentID) {
+        Attachment(id: settingsAttachmentID) {
             HeavenMainControlButton(
-                assetName: "Icon_Setting",
-                title: "Setting"
+                assetName: "Icon_settings",
+                title: "settings"
             ) {
-                print("Setting selected")
+                print("settings selected")
             }
         }
 
@@ -3110,8 +3110,8 @@ struct ImmersiveView: View {
         )
 
         configureAttachment(
-            id: settingAttachmentID,
-            position: settingPosition,
+            id: settingsAttachmentID,
+            position: settingsPosition,
             scale: SIMD3<Float>(repeating: 1.00),
             isEnabled: homeIsVisible || voiceIsVisible,
             content: content,
@@ -3499,7 +3499,7 @@ struct ImmersiveView: View {
         )
 
         syncFixedControlDepthBodies(
-            settingVisible: homeIsVisible || voiceIsVisible,
+            settingsVisible: homeIsVisible || voiceIsVisible,
             exitVisible: homeIsVisible || voiceIsVisible,
             surpriseVisible: homeIsVisible,
             backVisible: backIsVisible,
@@ -3538,16 +3538,16 @@ struct ImmersiveView: View {
     }
 
     private func syncFixedControlDepthBodies(
-        settingVisible: Bool,
+        settingsVisible: Bool,
         exitVisible: Bool,
         surpriseVisible: Bool,
         backVisible: Bool,
         content: RealityViewContent
     ) {
         findEntity(
-            named: settingDepthEntityName,
+            named: settingsDepthEntityName,
             in: content
-        )?.isEnabled = settingVisible
+        )?.isEnabled = settingsVisible
 
         findEntity(
             named: exitDepthEntityName,
