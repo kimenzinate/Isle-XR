@@ -2398,7 +2398,7 @@ struct ImmersiveView: View {
     private var fixedControlAttachments: some AttachmentContent {
         Attachment(id: settingsAttachmentID) {
             HeavenMainControlButton(
-                assetName: "Icon_setting",
+                assetName: "Icon_Setting",
                 title: "settings"
             ) {
                 print("settings selected")
