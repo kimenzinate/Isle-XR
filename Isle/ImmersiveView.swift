@@ -1461,7 +1461,7 @@ struct ImmersiveView: View {
 
     private let tutorialAttachmentID = "tutorial"
     private let entranceTitleAttachmentID = "entrance-title"
-    private let settingsAttachmentID = "settingss"
+    private let settingsAttachmentID = "settings"
     private let exitAttachmentID = "exit"
     private let surpriseAttachmentID = "surprise"
     private let boracayAttachmentID = "memory-boracay"
